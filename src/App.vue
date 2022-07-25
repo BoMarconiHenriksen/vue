@@ -12,9 +12,12 @@ productStore.fill();
 const addToCart = (count, product) => {
   count = parseInt(count)
 
-  for (let index = 0; index < count; index++) {
-    cartStore.items.push(product)
-  }
+  // Group together so it's only 1 mutation no matter how many items you add
+  cartStore.$patch( state => {
+    for (let index = 0; index < count; index++) {
+      state.items.push(product)
+    }
+  });
 }
 </script>
 
