@@ -11,6 +11,7 @@ export const useCartStore = defineStore("CartStore", {
     count: (state) => state.items.length, 
     isEmpty: (state) => state.count === 0,
     grouped: (state) => groupBy(state.items, (item) => item.name),
+    total: (state) => state.items.reduce((returnOfPreviousRun, curentElementInArray) => returnOfPreviousRun + curentElementInArray.price, 0),
     
     // dynamic getter
     groupCount: (state) => (name) => state.grouped[name].length
