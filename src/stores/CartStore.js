@@ -30,6 +30,9 @@ export const useCartStore = defineStore("CartStore", {
         // objects are passed by reference, not value that the reson for cloning item
         this.items.push({ ...item })
       }
+    },
+    clearItem(itemName) {
+      this.items = this.items.filter(item => item.name !== itemName)
     }
   }
 });
