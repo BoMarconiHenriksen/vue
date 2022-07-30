@@ -8,7 +8,7 @@ export default {
   components: { CartWidget },
   computed: {
     ...mapState( useAuthUserStore, {
-      user: "username"
+      user: store => `Hello ${store.username}`
     }),
   },
 };
